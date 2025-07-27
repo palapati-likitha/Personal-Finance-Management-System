@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <center>
+        <h2>User Details Form</h2>
+
+        {% if msg %}
+            <p><strong>{{ msg }}</strong></p>
+        {% endif %}
+
+        <form method="POST">
+            <table cellpadding="10">
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="email" name="email" value="{{ email }}" required></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" name="password" value="{{ password }}" required></td>
+                </tr>
+                <tr>
+                    <td>Age:</td>
+                    <td><input type="number" name="age" value="{{ age }}" required></td>
+                </tr>
+                <tr>
+                    <td>Phone No:</td>
+                    <td><input type="text" name="phone_no" value="{{ phone_no }}" required></td>
+                </tr>
+                <tr>
+                    <td>City:</td>
+                    <td><input type="text" name="city" value="{{ city }}" required></td>
+                </tr>
+                <tr>
+                    <td>Door No:</td>
+                    <td><input type="number" name="door_no" value="{{ door_no }}" required></td>
+                </tr>
+                <tr>
+                    <td>Pincode:</td>
+                    <td><input type="number" name="pincode" value="{{ pincode }}" required></td>
+                </tr>
+                <tr>
+                    <td>State:</td>
+                    <td><input type="text" name="state" value="{{ state }}" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <button type="submit" name="action" value="submit">Submit</button>
+                        <button type="submit" name="action" value="edit">Edit</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+        <p><a href="{{ url_for('dashboard') }}">Back to Dashboard</a></p>
+    </center>
+
+</body>
+</html>

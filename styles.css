@@ -1,0 +1,43 @@
+body {
+    background-color: white;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  h1, h2, h3 {
+    color: #003366; /* Dark Blue */
+    text-align: center;
+  }
+  
+  table {
+    margin: auto;
+    background-color: #f0f8ff; /* Light Blue background for table */
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+  }
+  
+  td {
+    padding: 15px;
+  }
+  
+  input, select {
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+  }
+  
+  button {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: #004080;
+  }
+  
+  

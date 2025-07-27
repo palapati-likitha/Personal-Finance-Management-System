@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">  
+</head>
+<body>
+
+    <center>
+        <h2>User Profile</h2>
+
+        <table border="1" cellpadding="10">
+            <tr><th>Email</th><td>{{ email }}</td></tr>
+            <tr><th>Password</th><td>{{ password }}</td></tr>
+            <tr><th>Age</th><td>{{ age }}</td></tr>
+            <tr><th>Phone No</th><td>{{ phone_no }}</td></tr>
+            <tr><th>City</th><td>{{ city }}</td></tr>
+            <tr><th>Door No</th><td>{{ door_no }}</td></tr>
+            <tr><th>Pincode</th><td>{{ pincode }}</td></tr>
+            <tr><th>State</th><td>{{ state }}</td></tr>
+        </table>
+
+        <br>
+        <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    </center>
+
+</body>
+</html>

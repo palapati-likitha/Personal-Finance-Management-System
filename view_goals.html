@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Savings Goals</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Savings Goals</h1>
+
+    {% if goals %}
+        <table border="1" cellpadding="8">
+            <tr>
+                <th>Goal</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Target</th>
+                <th>Saved</th>
+                
+            </tr>
+            {% for goal in goals %}
+            <tr>
+                <td>{{ goal[0] }}</td>
+                <td>{{ goal[1] }}</td>
+                <td>{{ goal[2] }}</td>
+                <td>{{ goal[3] }}</td>
+                <td>{{ goal[4] }}</td>
+                
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No savings goals found.</p>
+    {% endif %}
+
+    <br><a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+</body>
+</html>

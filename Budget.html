@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Budgets</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <center>
+        <h1>Manage Budgets</h1>
+        <hr width="60%">
+    </center>
+
+    <!-- Budget Form -->
+    <form method="POST" action="{{ url_for('Budget') }}">
+        <p>
+            <label>Start Date:</label><br>
+            <input type="date" name="start_date" required>
+        </p>
+
+        <p>
+            <label>End Date:</label><br>
+            <input type="date" name="end_date" required>
+        </p>
+
+        <p>
+            <label>Budget Amount:</label><br>
+            <input type="number" step="0.01" name="budget_amount" required>
+        </p>
+
+        <p>
+            <label>Category ID:</label><br>
+            <select name="category_id" required>
+                <option value="">Select a category</option>
+                {% for cat in categories %}
+                    <option value="{{ cat[0] }}">{{ cat[0] }} - {{ cat[1] }}</option>
+                {% endfor %}
+            </select>
+        </p>
+
+        <p>
+            <button type="submit" name="action" value="add">Submit Budget</button>
+            <button type="submit" name="action" value="edit">Edit Budget</button>
+        </p>
+    </form>
+
+    <!-- Budget List Section -->
+    <h2>Budget List</h2>
+
+    <div>
+        {% for budget in budgets %}
+        <p>
+            <strong>Budget ID:</strong> {{ budget[0] }} |
+            <strong>Start:</strong> {{ budget[1] }} |
+            <strong>End:</strong> {{ budget[2] }} |
+            <strong>Amount:</strong> ₹{{ budget[3] }} |
+            
+        </p>
+        {% endfor %}
+    </div>
+
+    <!-- Navigation Links -->
+    <p>
+        <a href="{{ url_for('category') }}">Go to Categories</a> |
+        <a href="{{ url_for('add_transaction') }}">Go to Transactions</a>|
+        <a href="{{ url_for('dashboard') }}">Go to dashboard</a>
+
+    </p>
+
+</body>
+</html>

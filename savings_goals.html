@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Savings Goals</title>
+    
+</head>
+<body>
+
+    <center>
+        <h1>Set Your Savings Goal</h1>
+        <hr width="60%">
+    </center>
+
+    <!-- New Goal Button -->
+    <p style="text-align: center;">
+        <a href="/savings_goals"><button type="button">+ New Goal</button></a>
+    </p>
+     
+    <!-- Goal Form -->
+    <form method="POST" action="{{ url_for('savings_goals') }}">
+        <p>
+            <label for="goal_name">Goal Name:</label><br>
+            <input type="text" id="goal_name" name="goal_name" required>
+        </p>
+
+        <p>
+            <label for="start_date">Start Date:</label><br>
+            <input type="date" id="start_date" name="start_date" required>
+        </p>
+
+        <p>
+            <label for="end_date">End Date:</label><br>
+            <input type="date" id="end_date" name="end_date" required>
+        </p>
+
+        <p>
+            <label for="target_amount">Target Amount (₹):</label><br>
+            <input type="number" id="target_amount" name="target_amount" step="0.01" required>
+        </p>
+
+        <p>
+            <label for="current_savings">Current Savings (₹):</label><br>
+            <input type="number" id="current_savings" name="current_savings" step="0.01" required>
+        </p>
+
+        <p>
+            <label for="user_id">User ID:</label><br>
+            <input type="number" id="user_id" name="user_id" required>
+        </p>
+
+        <p>
+            <button type="submit">Save Goal</button>
+        </p>
+    </form>
+
+    <br>
+    <p><a href="{{ url_for('view_goals') }}">Go to goals</a> |</p>
+    <p><a href="{{ url_for('dashboard') }}">Back to Dashboard</a></p>
+
+</body>
+</html>

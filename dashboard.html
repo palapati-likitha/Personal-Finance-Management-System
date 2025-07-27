@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <center>
+    <h1>Personal Finance Management System 💰💰</h1>
+    <!-- Dashboard Header -->
+    
+        <h1>Welcome to Dashboard !</h1>
+        <hr width="50%">
+    </center>
+    <center>
+    <!-- Greeting and Status Message -->
+    <h2>Hello 😊, {{ user_name }}!</h2>
+    <p><strong>You have signed in successfully.</strong></p>
+
+    <!-- Navigation Menu (no bullets, each on new line) -->
+    <h3>Navigation Menu</h3>
+
+    <p><a href="{{ url_for('user_details') }}">User Details</a></p>
+    <p><a href="{{ url_for('view_profile') }}">View Profile</a></p>
+    <p><a href="{{ url_for('add_account') }}">Account</a></p>
+    <p><a href="{{ url_for('Bill') }}">Bill</a></p>
+    <p><a href="{{ url_for('add_transaction') }}">Transaction</a></p>
+    <p><a href="{{ url_for('category') }}">Category</a></p>
+    <p><a href="{{ url_for('savings_goals') }}">savings_goal</a></p>
+    <p><a href="{{ url_for('view_goals') }}">view_goal</a></p>
+    <p><a href="{{ url_for('Budget') }}">Budget</a></p>
+    <p><a href="{{ url_for('logout') }}">Logout</a></p>
+    </center>
+
+</body>
+</html>

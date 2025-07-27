@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <center>
+        <h2>Signup</h2>
+
+        {% if msg %}
+            <p><strong>{{ msg }}</strong></p>
+        {% endif %}
+
+        <form action="{{ url_for('signup') }}" method="post">
+            <table cellpadding="10">
+                <tr>
+                    <td>Username:</td>
+                    <td><input type="text" name="user_name" required></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="email" name="email" required></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" name="password" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <button type="submit">Signup</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+        <p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+    </center>
+
+</body>
+</html>

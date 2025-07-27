@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bill Management</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+  <center>
+    <h1>Bill Management</h1>
+    <hr width="50">
+  
+
+  <!-- Navigation -->
+  <p>
+    <a href="/category">Categories</a> |
+    <a href="/Budget">Budget</a>  |
+    <a href="/dashboard">Go to dashboard</a>
+  </p>
+
+  <!-- Form Title -->
+  <h2>Add a New Bill</h2>
+
+<form method="POST" action="/Bill">
+  <table cellpadding="10">
+    <tr>
+      <td>User ID:</td>
+      <td><input type="text" name="userId" required></td>
+    </tr>
+    <tr>
+      <td>Bill Type:</td>
+      <td><input type="text" name="billType" required></td>
+    </tr>
+    <tr>
+      <td>Due Date:</td>
+      <td><input type="date" name="dueDate" required></td>
+    </tr>
+    <tr>
+      <td>Amount:</td>
+      <td><input type="number" name="amount" step="0.01" required></td>
+    </tr>
+    <tr>
+      <td>Status:</td>
+      <td>
+        <select name="status" required>
+          <option value="Pending">Pending</option>
+          <option value="Paid">Paid</option>
+          <option value="Overdue">Overdue</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" >
+        <button type="submit">Add Bill</button>
+      </td>
+    </tr>
+  </table>
+</form>
+
+
+  <!-- Static Displaying of Bill (Preview) -->
+  <hr>
+  <div>
+    <h3>Entered Bill Details (Preview)</h3>
+    {% if selected_bill %}
+      <p><strong>Bill ID:</strong><br>{{ selected_bill[0] }}</p>
+      <p><strong>Bill Type:</strong><br>{{ selected_bill[1] }}</p>
+      <p><strong>Due Date:</strong><br>{{ selected_bill[2] }}</p>
+      <p><strong>Amount:</strong><br>₹{{ selected_bill[3] }}</p>
+      <p><strong>Status:</strong><br>{{ selected_bill[4] }}</p>
+    {% else %}
+      <p>No bill has been added yet.</p>
+    {% endif %}
+  </div>
+
+  <!-- All Transactions Table -->
+  {% if transactions %}
+    <hr>
+    <h3>All Transactions for Selected Account</h3>
+    <table border="1" cellpadding="5">
+      <thead>
+        <tr>
+          <th>Transaction ID</th>
+          <th>Type</th>
+          <th>Amount</th>
+          <th>Description</th>
+          <th>Date</th>
+          <th>User ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for txn in transactions %}
+          <tr>
+            <td>{{ txn[0] }}</td>
+            <td>{{ txn[1] }}</td>
+            <td>{{ txn[2] }}</td>
+            <td>{{ txn[3] }}</td>
+            <td>{{ txn[4] }}</td>
+            <td>{{ txn[5] }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+</center>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Categories</title>
+    
+</head>
+<body>
+
+    <center>
+        <h1>Manage Categories</h1>
+        <hr width="60%">
+    </center>
+
+    <!-- Category Form -->
+    <form method="POST" action="{{ url_for('category') }}">
+        <p>
+            <input type="text" name="category_id" placeholder="Enter Category ID" required>
+        </p>
+        <p>
+            <input type="text" name="category_name" placeholder="Enter Category Name" required>
+        </p>
+        <p>
+            <button type="submit">Add Category</button>
+        </p>
+    </form>
+
+    <!-- Category List -->
+    <h2>Category List</h2>
+    <div>
+        {% if categories %}
+            {% for cat in categories %}
+                <p>
+                    <strong>ID:</strong> {{ cat[0] }} |
+                    <strong>Name:</strong> {{ cat[1] }}
+                </p>
+            {% endfor %}
+        {% else %}
+            <p>No categories added yet.</p>
+        {% endif %}
+    </div>
+
+    <!-- Navigation -->
+    <p>
+        <a href="{{ url_for('add_transaction') }}">Go to Transactions</a> |
+        <a href="{{ url_for('Budget') }}">Go to Budget</a>
+        <a href="{{ url_for('dashboard') }}">Go to dashboard</a>
+    </p>
+
+</body>
+</html>
